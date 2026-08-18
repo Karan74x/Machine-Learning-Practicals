@@ -27,3 +27,25 @@ df["Actual_Experience"] = encoded_experience
 
 
 print(df[["Experience_Level", "Actual_Experience"]])
+
+
+#             Satisfaction Example
+
+# Poor Good Average Excellent
+
+#selection of column
+satisfaction = df[["Satisfaction"]]
+
+# convert to numpy array
+satisfaction_array = np.array(satisfaction)
+
+# ordinalEncoder object            0      1       2            3
+oe = OrdinalEncoder(categories=[["Poor","Average", "Good", "Excellent"]])
+
+# encode the column
+encoded_satisfaction = oe.fit_transform(satisfaction_array)
+print(encoded_satisfaction)
+
+# assign encoded column to df
+df["Encoded_Satisfaction"] = encoded_satisfaction
+print(df[["Satisfaction", "Encoded_Satisfaction"]])
