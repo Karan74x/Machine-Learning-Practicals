@@ -50,3 +50,29 @@ df["Gender_encoded"] = encoded_gender
 # Compare original and encoded values
 print(df[["Gender", "Gender_encoded"]])
 
+
+
+#                        Experience_Level Example
+
+# Select categorical column
+experience_level = df["Experience_Level"]
+
+# Convert Pandas column to Numpy array
+experience_array = np.array(experience_level)
+
+# Create LabelEncoder object
+le = LabelEncoder()
+
+# Learn Categories and encode them
+encoded_experience = le.fit_transform(experience_array)
+print(encoded_experience) #to see encoded values
+
+print(le.classes_) # To see category to label mapping
+
+# Add encoded values to DataFrame
+df["Encoded_Experience"] = encoded_experience
+
+# Compare original and encoded values
+print(df[["Experience_Level","Encoded_Experience"]])
+
+
